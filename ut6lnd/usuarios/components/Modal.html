@@ -1,0 +1,89 @@
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="addEditUserModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="addEditUserModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="addEditUserModalLabel">
+          Añadir Usuario
+        </h1>
+        <button
+          aria-label="Close"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          type="button"
+          onclick="onCloseModal()"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div
+          id="success-msg"
+          class="alert alert-success text-center visually-hidden"
+          role="alert"
+        >
+          <i class="bi bi-check-circle-fill"></i> Usuario añadido !!!
+        </div>
+        <form>
+          <div class="mb-3">
+            <label for="inputFormControlInputName" class="form-label"
+              >Nombre</label
+            >
+            <input
+              type="name"
+              class="form-control"
+              id="inputFormControlInputName"
+              placeholder="name ..."
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="inputFormControlInputEmail" class="form-label"
+              >Email</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="inputFormControlInputEmail"
+              placeholder="email@example.com"
+              pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="inputFormControlInputRol" class="form-label">Rol</label>
+            <select
+              id="inputFormControlInputRol"
+              class="form-select"
+              aria-label="Default select example"
+            >
+              <option value="1">Administrador</option>
+              <option value="2">Editor</option>
+              <option value="3">Usuario Registrado</option>
+              <option selected value="4">Invitado</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+          type="button"
+          onclick="onCloseModal()"
+        >
+          Close
+        </button>
+        <button id="btnSubmitAddEditUser" type="button" class="btn btn-primary">
+          Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

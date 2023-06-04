@@ -4,16 +4,16 @@ include '../config/env.php';
 include '../helpers/db_connection.php';
 
 $payload = json_decode(file_get_contents("php://input"));
-
 // Si no hay datos, error 500
 if (!$payload) {
     http_response_code(500);
     exit;
 }
-// Extraer Values
-$name = $payload->name;
-$email = $payload->email;
-$rol = $payload->rol;
+
+// Extraer Payload
+$name = mysqli_real_escape_string($conn, $payload->name);
+$email = mysqli_real_escape_string($conn, $payload->email);
+$rol = mysqli_real_escape_string($conn, $payload->rol);
 $token = substr(md5(rand()), 0, 16);
 
 // Consulta SQL para guardar los datos

@@ -13,8 +13,14 @@ $id = $_GET["id"];
 // Consulta SQL para eliminar un usuario
 $query = "DELETE FROM Usuarios WHERE id = '$id'";
 $result = mysqli_query($conn, $query);
+if ($result && mysqli_affected_rows($conn) > 0) {
+    $response = array('ok' => true);
+    header('Content-Type: application/json');
+    echo json_encode($response);
+} else {
+    $response = array('ok' => false);
+    header('Content-Type: application/json');
+    echo json_encode($response);
+}
 // Cerrar la conexión a la base de datos
 mysqli_close($conn);
-
-// Return
-echo json_encode($result);
