@@ -106,6 +106,8 @@ const onLoadUser = async (userId) => {
 };
 
 // Save/Edit User:
+// action: "create" || "edit"
+// userId: number || undefined
 const onSubmitAddEditUserForm = async (action, userId) => {
   const reg = /^[A-Z0-9._%+-]+@([A-Z0-9-]+.)+[A-Z]{2,4}$/i;
   const inputName = document.getElementById("inputFormControlInputName");
